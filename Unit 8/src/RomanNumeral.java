@@ -19,41 +19,77 @@ public class RomanNumeral
 
 	public RomanNumeral(String str)
 	{
-
-
-
+		roman = str;
 	}
 
 	public RomanNumeral(Integer orig)
 	{
-
-
-
+		number = orig;
 	}
 
 	public void setNumber(Integer num)
 	{
-
-
-
-
-
+		number = num;
 	}
 
 	public void setRoman(String rom)
 	{
-
-
+		roman = rom;
 
 	}
 
 	public Integer getNumber()
 	{
+		number = 0;
+		while (roman != "")
+		{
+			for (int i = 0; i < LETTERS.length; i++)
+			{
+				if (roman.indexOf(LETTERS[i]) == 0)
+				{
+					number += NUMBERS[i];
+					if (LETTERS[i].length() == 1)
+					{
+						if (roman.length() == 1)
+						{
+							roman = "";
+						}
+						else						
+							roman = roman.substring(1);
+					}
+					else if (LETTERS[i].length() == 2)
+					{
+						if (roman.length() == 2)
+						{
+							roman = "";
+						}
+						else						
+							roman = roman.substring(2);
+					}
+					
+				}
+				
+			}
+		}
 		return number;
 	}
 
 	public String toString()
 	{
+		roman = "";
+		
+		while (number != 0)
+		{
+			int count = 0;
+			for (int i = 0; NUMBERS[i] > number; i++)
+			{
+				count ++;
+			}
+			
+			roman += LETTERS[count];
+			number -= NUMBERS[count];
+			
+		}
 		return roman + "\n";
 	}
 }
