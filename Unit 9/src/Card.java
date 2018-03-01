@@ -8,7 +8,6 @@ public class Card {
 	/**
 	 * String value that holds the suit of the card
 	 */
-	
 	private String suit;
 
 	/**
@@ -37,7 +36,6 @@ public class Card {
 		rank = cardRank;
 		suit = cardSuit;
 		pointValue = cardPointValue;
-		
 	}
 
 
@@ -66,7 +64,6 @@ public class Card {
 	public int pointValue() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
 		return pointValue;
-		
 	}
 
 	/** Compare this card with the argument.

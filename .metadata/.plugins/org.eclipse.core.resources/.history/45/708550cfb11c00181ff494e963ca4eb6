@@ -1,0 +1,17 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+public class Lab14d
+{
+	public static void main( String args[] )
+	{
+		Grades one = new Grades(5);
+		System.out.println(one);
+		
+		
+		
+	}
+}

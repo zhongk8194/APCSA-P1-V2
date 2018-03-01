@@ -1,0 +1,74 @@
+/**
+ * This is a class that tests the Deck class.
+ */
+public class DeckTester {
+
+	/**
+	 * The main method in this class checks the Deck operations for consistency.
+	 *	@param args is not used.
+	 */
+	public static void main(String[] args) {
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		String[] rank1 = {"Queen", "King", "Ace"};
+		String[] suit1 = {"Hearts", "Clubs", "Diamonds"};
+		int[] pointValue1 = {12, 13, 1};
+		Deck one = new Deck(rank1, suit1, pointValue1);
+		System.out.println(one.isEmpty());
+		
+		String[] rank2 = {"2", "3", "4"};
+		String[] suit2 = {"Spades", "Hearts", "Clubs"};
+		int[] pointValue2 = {2, 3, 4};
+		Deck two = new Deck(rank2, suit2, pointValue2);
+		System.out.println(two.size());
+		
+		String[] rank3 = {"5", "6", "7"};
+		String[] suit3 = {"Hearts", "Diamonds", "Spades"};
+		int[] pointValue3 = {5, 6, 7};
+		Deck three = new Deck(rank3, suit3, pointValue3);
+		System.out.println(three.deal());
+		System.out.println("");
+		
+		//Standard deck of cards below
+		String[] rank4 = new String[52];
+		String[] suit4 = new String[52];
+		int[] pointValue4 = new int[52];
+		
+		for (int i = 0; i < 52; i++) {
+			String rank = "";
+			String suit = "";
+			if ((i + 1) % 13 == 11) {
+				rank = "Jack";
+			}
+			else if ((i+1) % 13 == 12) {
+	            rank = "Queen";
+	        }
+	        else if ((i+1) % 13 == 0) {
+	            rank = "King";
+	        }
+	        else if ( (i+1) % 13 == 1) {
+	            rank = "Ace";
+	        }
+	        else {
+	        	rank = Integer.toString((i + 1) % 13);
+	        }
+			if (i < 13) {
+				suit = "Hearts";
+			}
+			if (i < 26) {
+				suit = "Spades";
+			}
+			if (i < 39) {
+				suit = "Clubs";
+			}
+			else {
+				suit = "Diamonds";
+			}
+			rank4[i] = rank;
+			suit4[i] = suit;
+			pointValue4[i] = ((i + 1) % 13);
+				
+		}
+		Deck four = new Deck(rank4, suit4, pointValue4);
+		System.out.println(four); 
+	}
+}
