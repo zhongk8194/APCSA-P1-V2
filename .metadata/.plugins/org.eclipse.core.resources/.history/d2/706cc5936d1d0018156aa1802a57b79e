@@ -33,7 +33,6 @@ public class DeckTester {
 		String[] suit4 = {"Hearts", "Diamonds", "Spades", "Clubs"};
 		int[] pointValue4 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 		Deck four = new Deck(rank4, suit4, pointValue4);
-		four.shuffle();
-		System.out.println(four.toString()); 
+		System.out.println(four); 
 	}
 }
