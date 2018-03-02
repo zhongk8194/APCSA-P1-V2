@@ -1,0 +1,25 @@
+
+public class Numbers {
+
+	public static boolean isGoofy(int num) {
+		String numString = Integer.toString(num);
+		int sum = 0;
+		for (int i = 0; i < numString.length(); i++) {
+			if (num % (int) (numString.charAt(i)) == 0) {
+				sum = sum + (int) (numString.charAt(i));	
+			}
+			if (sum % 2 != 0 && sum > 0){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+
+public static void main (String args[]) {
+	
+	System.out.println(Numbers.isGoofy(12));
+	System.out.println(Numbers.isGoofy(15));
+	System.out.println(Numbers.isGoofy(26));
+	}
+}

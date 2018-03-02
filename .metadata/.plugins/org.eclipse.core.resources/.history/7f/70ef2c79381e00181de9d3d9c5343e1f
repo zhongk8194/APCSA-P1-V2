@@ -1,0 +1,19 @@
+
+public class Numbers {
+
+	public static Integer isGoofy(int num) {
+		String numString = Integer.toString(num);
+		int sum = 0;
+		for (int i = 0; i < numString.length(); i++) {
+			if (num % (int) (numString.charAt(i)) == 0) {
+				sum = sum + (int) (numString.charAt(i));	
+			}
+			if (sum % 2 != 0 && sum > 0){
+				return sum;
+				//return true;
+			}
+		}
+		return (int)(numString.charAt(0));//return false;
+	}
+	
+}
