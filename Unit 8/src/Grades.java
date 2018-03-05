@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Grades
 {
 	private double[] nums;
+	
 	public Grades(int numberOfGrades) {
 		nums = new double[numberOfGrades];
 		

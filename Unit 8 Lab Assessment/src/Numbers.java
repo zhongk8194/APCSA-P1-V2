@@ -4,10 +4,22 @@ public class Numbers {
 
 	private int num;
 	
-	public void setNum(int num1){
-		num = num1;
+	public void setNum(int number){
+		num = number;
 	}
-	public boolean isGoofy(int num1) {
+	public static boolean isGoofy(int number) {
+		/**int sum = 0; 
+		int number = num;
+		while (num > 0)
+		{
+			int dig = num % 10;
+			if (dig != 0 && number % dig == 0){
+				sum = sum + dig;
+			}
+			num = num / 10;
+		}
+		return (sum != 0 && sum % 2 != 0);**/
+		
 		String numString = Integer.toString(num);
 		int sum = 0;
 		for (int i = 0; i < numString.length(); i++) {
@@ -23,6 +35,18 @@ public class Numbers {
 	}
 	
 	public int[] getSomeGoofyNumbers(int count) {
+		
+		/**int[] ray = new int[count];
+		for (int i = 0, x = 1 ; i < count; x++){
+			if(isGoofy(x)) {
+				ray[i] = x;
+				i++;
+			}
+		}
+		
+		return ray; 
+	} **/
+		
 		int[] array = new int[count];
 		for (int i = 0; i < count; i++)
 			if (isGoofy(num) == true){
