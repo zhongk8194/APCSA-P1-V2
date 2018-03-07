@@ -40,16 +40,16 @@ public class MadLib
 			while(file.hasNext()) {
 				String symbol = file.next();
 				if(symbol.equals("#")) {
-						out.print(getRandomNoun() + " ");
+						out.print(getRandomNoun() + "");
 				}
 				else if (symbol.equals("@")) {
-					out.print(getRandomVerb() + " ");
+					out.print(getRandomVerb() + "");
 				}
 				else if (symbol.equals("&")) {
-					out.print(getRandomAdjective() + " ");
+					out.print(getRandomAdjective() + "");
 				}
 				else
-					out.print(symbol + " ");
+					out.print(symbol + "");
 			}
 
 	
@@ -65,7 +65,7 @@ public class MadLib
 	{
 		try{
 		
-			Scanner file = new Scanner(new File ("C:\\Users\\zhongk8194\\Documents\\GitHub\\APCSA-P1-V2\\Unit 10\\src\\nouns.dat"));
+			Scanner file = new Scanner(new File ("C:\\Users\\zhongk8194)\\Documents\\GitHub\\APCSA-P1-V2\\Unit10\\src\\nouns.dat"));
 			while (file.hasNextLine()) {
 				nouns.add(file.nextLine());
 			}
@@ -82,7 +82,7 @@ public class MadLib
 	public void loadVerbs()
 	{
 		try{
-			Scanner file = new Scanner(new File ("C:\\Users\\zhongk8194\\Documents\\GitHub\\APCSA-P1-V2\\Unit 10\\src\\verbs.dat"));
+			Scanner file = new Scanner(new File ("C:\\Users\\zhongk8194)\\Documents\\GitHub\\APCSA-P1-V2\\Unit10\\src\\verbs.dat"));
 			while (file.hasNextLine()){
 				verbs.add(file.nextLine());
 			}
@@ -97,7 +97,7 @@ public class MadLib
 	public void loadAdjectives()
 	{
 		try{
-			Scanner file = new Scanner(new File ("C:\\Users\\zhongk8194\\Documents\\GitHub\\APCSA-P1-V2\\Unit 10\\src\\adjectives.dat"));
+			Scanner file = new Scanner(new File ("C:\\Users\\zhongk8194)\\Documents\\GitHub\\APCSA-P1-V2\\Unit10\\src\\adjectives.dat"));
 			while (file.hasNextLine()){
 				adjectives.add(file.nextLine());
 			}

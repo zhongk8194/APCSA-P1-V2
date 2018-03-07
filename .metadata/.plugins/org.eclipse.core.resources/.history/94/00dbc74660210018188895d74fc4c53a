@@ -40,16 +40,16 @@ public class MadLib
 			while(file.hasNext()) {
 				String symbol = file.next();
 				if(symbol.equals("#")) {
-						out.print(getRandomNoun() + " ");
+						out.print(getRandomNoun() + "");
 				}
 				else if (symbol.equals("@")) {
-					out.print(getRandomVerb() + " ");
+					out.print(getRandomVerb() + "");
 				}
 				else if (symbol.equals("&")) {
-					out.print(getRandomAdjective() + " ");
+					out.print(getRandomAdjective() + "");
 				}
 				else
-					out.print(symbol + " ");
+					out.print(symbol + "");
 			}
 
 	
