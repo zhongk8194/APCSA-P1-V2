@@ -63,7 +63,7 @@ public class Histogram
 
 	public void loadAndAnalyzeFile() throws IOException
 	{
-		Scanner file = new Scanner(new File ("C:\\Users\\zhongk8194\\Documents\\GitHub\\APCSA-P1-V2\\Unit 10\\src\\" + fileName));
+		Scanner file = new Scanner(new File ("C:\\Users\\zhongk8194\\Documents\\GitHub\\APCSA-P1-V2\\Unit 10\\src\\Lab16e\\" + fileName));
 		for (int i = 0; i < letters.size(); i++) {
 			int counter = 0;
 			while (file.hasNext()){
@@ -75,7 +75,7 @@ public class Histogram
 				}
 			}
 			file.close();
-			file = new Scanner(new File ("C:\\Users\\zhongk8194\\Documents\\GitHub\\APCSA-P1-V2\\Unit 10\\src\\" + fileName));
+			file = new Scanner(new File ("C:\\Users\\zhongk8194\\Documents\\GitHub\\APCSA-P1-V2\\Unit 10\\src\\Lab16e\\" + fileName));
 			count.add(counter);
 		}
 	}
