@@ -34,30 +34,6 @@ public class Histogram
 		}
 		fileName = fName;
 		
-		
-		
-	/**	letters.toArray() = values;
-		
-		this();
-		
-		loadAndAnalyzeFile();
-		
-		try{
-			Scanner file = new Scanner(new File(fileName));
-			while(file.hasNext()) {
-				String letter = file.next();
-				int count = 0;
-				for (int i = 0; i < values.length; i++) {
-					if (values[i] == letter) {
-						count ++;
-						count.add(count);
-					}
-					else 
-						count = count;
-				}
-			}
-		}	**/
-		
 		out.println("search letters = "+letters);
 	}
 
