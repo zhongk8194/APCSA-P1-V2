@@ -82,7 +82,7 @@ public class Student implements Comparable<Student>
 	}
 	
 	public int compareTo(Student param) {
-		if (getAverage() > param.getAverage()) {
+		if (this.getAverage() > param.getAverage()) {
 			return 1;
 		}
 		else if (getAverage() < param.getAverage()) {

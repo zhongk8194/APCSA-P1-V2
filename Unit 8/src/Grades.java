@@ -6,33 +6,35 @@
 
 import java.lang.System;
 import java.lang.Math;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Grades
 {
-	private double[] nums;
+	private ArrayList<Double> nums;
 	
 	public Grades(int numberOfGrades) {
-		nums = new double[numberOfGrades];
+		nums = new ArrayList<Double>(numberOfGrades);
 		
 	}
 	
 	public void setGrades() {
 		Scanner keyboard = new Scanner(System.in);
 		int count = 0;
-		for (int i = 0; i < nums.length; i++)
+		for (int i = 0; i < nums.size(); i++)
 			System.out.println("Enter a grade: ");
 			double answer = keyboard.nextDouble();
-			nums[count] = answer;
+			nums.set(count, answer);
 			count ++;
 	}
 
 	private double getSum()
 	{
 		double sum=0.0;
-		for (int i = 0; i < nums.length; i++)
-			sum += nums[i];
+		for (int i = 0; i < nums.size(); i++)
+			sum += nums.get(i);
 
 		return sum;
 	}
@@ -40,15 +42,15 @@ public class Grades
 	public double getAverage()
 	{
 		double average=0.0;
-		average = getSum() / nums.length;
+		average = getSum() / nums.size();
 	
 		return average;
 	}
 
 	public String toString() {
-		Arrays.sort(nums);
-		for (int i = 0; i < nums.length; i++)
-			System.out.println("Grade " + i + " :: " + nums[i]);
+		Collections.sort(nums);
+		for (int i = 0; i < nums.size(); i++)
+			System.out.println("Grade " + i + " :: " + nums.get(i));
 		return "Average = " + getAverage();
 	}
 	//toString method
