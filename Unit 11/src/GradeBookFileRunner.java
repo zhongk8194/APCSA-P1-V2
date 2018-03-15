@@ -19,9 +19,9 @@ public class GradeBookFileRunner
 		out.println("Welcome to the Class Stats program!");
 		
 		Scanner file = new Scanner(new File("H:\\APCSA\\Unit11\\Unit11-2016\\Unit11-Assignments\\Lab19b\\gradebook.dat"));
-		out.print("\n\nWhat is the name of this class?");
+	//	out.print("\n\nWhat is the name of this class?");
 		String className = file.nextLine();
-		out.print("\n\nHow many students are in this class?");
+	//	out.print("\n\nHow many students are in this class?");
 		int classSize = file.nextInt();file.nextLine();
 		
 		Class test = new Class(className, classSize);
@@ -32,7 +32,7 @@ public class GradeBookFileRunner
 			test.addStudent(new Student(stuName, studentGrades));
 		}
 		
-		out.println("\n\n"+test);
+	//	out.println("\n\n"+test);
 		test.sort();
 		
 		out.println("\n\n"+ test);
