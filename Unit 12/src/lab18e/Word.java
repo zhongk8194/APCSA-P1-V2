@@ -12,7 +12,7 @@ public class Word implements Comparable<Word>
 
 	public Word( String s)
 	{
-
+		word = s;
 
 	}
 
@@ -20,23 +20,29 @@ public class Word implements Comparable<Word>
 	{
 		String vowels = "AEIOUaeiou";
 		int vowelCount=0;
-
-
-
-
-
-
+		
+		for (int i = 0; i < word.length(); i++){
+			if (vowels.indexOf(word.charAt(i)) != -1){
+				vowelCount ++;
+			}
+			else
+				vowelCount = vowelCount;
+		}
 
 		return vowelCount;
 	}
 
 	public int compareTo(Word rhs)
 	{
-
-
-
-	
-		return -1;
+		if (numVowels() != rhs.numVowels()){
+			if (numVowels() > rhs.numVowels()){
+				return 1;
+			}
+			else if (numVowels() < rhs.numVowels()){
+				return -1;
+			}
+		}
+		return 0;
 	}
 
 	public String toString()

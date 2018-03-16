@@ -74,27 +74,42 @@ public class Monster implements Comparable
 	   return new Monster(myHeight, myWeight, myAge);
 	}
 
-	public boolean equals( Object obj )
+	public boolean equals( Monster obj )
 	{
-		Monster obj = new Monster(myHeight, myWeight, myAge);
-		if(obj.myHeight == myHeight && obj.myWeight == myWeight && obj.myAge == myAge)
+		
+		if(myHeight == obj.getHeight() && myWeight == obj.getWeight() && myAge == obj.getAge()){
 			return true;
+		}
 		return false;
 	}
 
 	public int compareTo( Object obj )
 	{
 		Monster rhs = (Monster)obj;
-		if (myHeight > rhs.myHeight)
-			return 1;
-		else if (myHeight < rhs.myHeight)
+		if (myHeight != rhs.myHeight){
+			if (myHeight > rhs.myHeight)
+				return 1;
 			return -1;
-		
+		}
+		else if (myWeight != rhs.myWeight){
+			if (myWeight > rhs.myWeight){
+				return 1;
+			}
+			return -1;
+		}
+		else if (myAge != rhs.myAge){
+			if (myAge > rhs.myAge){
+				return 1;
+			}
+			return -1;
+		}
+		else
+			return 0;
+	}
+	
+	public String toString(){
+		return (myHeight + " " + myWeight + " " + myAge);
 
-
-
-
-		return -1;
 	}
 
 	//write a toString() method
