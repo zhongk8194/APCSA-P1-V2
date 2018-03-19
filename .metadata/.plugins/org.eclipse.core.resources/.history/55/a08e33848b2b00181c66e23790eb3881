@@ -19,27 +19,16 @@ public class Lab18d
 
 		int size = file.nextInt();
 		file.nextLine();
-		
-		Word[] wordList = new Word[size];
-		
-		for (int i = 0; i < size; i++){
-			wordList[i] = new Word(file.nextLine());
-		}
-		
-		for (int i = 0; i < size; i++){
-			for (int a = 0; a < size - 1; a++){
-				if (wordList[a].compareTo(wordList[a + 1]) == 1){
-					Word one = wordList[a + 1];
-					wordList[a + 1] = wordList[a];
-					wordList[a] = one;
+		while (file.hasNextLine()){
+			Word one = new Word(file.nextLine());
+			while (file.hasNextLine()){
+				int num = one.compareTo(new Word(file.nextLine()));
+				if (num == 1){
+				System.out.println(one);
 				}
+
 			}
-		}
-		
-		for (int i = 0; i < size; i++){
-			System.out.println(wordList[i].toString());
-		}
-	
 
 		}
 	}
+}

@@ -28,7 +28,7 @@ public class Lab18d
 		
 		for (int i = 0; i < size; i++){
 			for (int a = 0; a < size - 1; a++){
-				if (wordList[a].compareTo(wordList[a + 1]) == 1){
+				if (wordList[i].compareTo(wordList[i + 1]) == 1){
 					Word one = wordList[a + 1];
 					wordList[a + 1] = wordList[a];
 					wordList[a] = one;
