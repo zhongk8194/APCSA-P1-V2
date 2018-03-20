@@ -43,44 +43,4 @@ public class Lab18e
 	
 	}
 	
-		
-		/**int size = file.nextInt();
-		file.nextLine();
-		
-		Word2[] output = new Word2[size];
-		int i = 0;
-		while (file.hasNextLine()){
-			output[i] = new Word2(file.nextLine());
-			i++;
-			
-		}
-		Arrays.sort(output);
-
-		for (Word2 j: output){
-			System.out.println(j);
-			
-		}**/
-		
-		/**int size = file.nextInt();
-		Word2[] Array = new Word2[size];
-		
-		for (int i = 0; i < size; i++){
-			Word2 one =  new Word2(file.nextLine());
-			if (one.compareTo(new Word2(file.nextLine())) == 1){
-				Array[i] = one;
-				
-			}
-		}
-		
-		Collections.sort(Array);
-		
-		for (int a = 0; a < size; a++){
-			System.out.println(Array[a]);
-		}
-		
-
-**/
-
-
-
 	}
