@@ -54,19 +54,18 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		int sum = 0;
-		if (selectedCards.size() == 2 || selectedCards.size() == 3){
-			for (int i = 0; i < selectedCards.size(); i++){
-				if (POINT_VALUES.indexOf(selectedCards.get(i)) != -1)
-					sum += selectedCards.get(i);
-				else 
-					
-			}
-			if (sum == 11){
-				return true;
-			}
+		if (selectedCards.size() == 2){
+			return containsPairSum11(selectedCards);
 		}
+		
+		else if (selectedCards.size() == 3){
+			return containsJQK(selectedCards);
+		}
+		else
+			return false;
 	}
+		
+		
 
 	/**
 	 * Determine if there are any legal plays left on the board.
@@ -79,6 +78,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return (containsPairSum11(cardIndexes())) || (containsJQK(cardIndexes()));
 	}
 
 	/**
@@ -91,6 +91,14 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		for (int i = 0; i < selectedCards.size() - 1; i++){
+			for (int a = 0; a < selectedCards.size(); a++){
+				if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(a)).pointValue() == 11) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -103,5 +111,22 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		boolean jBool = false; 
+		boolean qBool = false; 
+		boolean kBool = false; 
+		
+			for (int i = 0; i < selectedCards.size(); i++) {
+				if (this.cardAt(selectedCards.get(i)).rank().equals("jack")) {
+						jBool = true;
+				}
+				if (this.cardAt(selectedCards.get(i)).rank().equals("queen")) {
+					qBool = true;
+				}
+				if (this.cardAt(selectedCards.get(i)).rank().equals("king")) {
+					kBool = true;
+				}
+			}
+		return jBool && qBool && kBool;
+	
 	}
 }
