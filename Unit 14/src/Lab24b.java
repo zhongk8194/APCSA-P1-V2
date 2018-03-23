@@ -13,8 +13,7 @@ public class Lab24b
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Scanner file = new Scanner(new File ("H:\\APCSA\\Unit14_2016\\Unit14_2016\\Unit14-Assignments\\lab24b.dat"));
-	
+		Scanner file = new Scanner(new File ("H:\\APCSA\\Unit14\\Unit14_2016\\Unit14-Assignments\\lab24b.dat"));
 		
 		int size = file.nextInt();
 		file.nextLine();
@@ -24,5 +23,7 @@ public class Lab24b
 			FancyWord one = new FancyWord(word);
 			System.out.println(one + "\n\n");
 	   }
+	file.close();
 	}
+	
 }

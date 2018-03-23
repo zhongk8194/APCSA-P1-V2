@@ -26,13 +26,12 @@ public class FancyWord
 		   Arrays.fill(row, ' ');
 		
 	   for (int i = 0; i < s.length(); i++){
+		   end = s.length() - i - 1;
 		   mat[0][i] = s.charAt(i);
 		   mat[end][i] = s.charAt(i);
 		   mat[i][i] = s.charAt(i);
-		   mat[end - 1][i]= s.charAt(i);
+		   mat[s.length() - 1][i] = s.charAt(i);
 		}
-
-
 
 	}
 
@@ -43,11 +42,10 @@ public class FancyWord
 			for (int a = 0; a < mat[i].length; a++) {
 				output += mat[i][a];
 			}
+			output += "\n";
 		}
-		output += "\n";
-		
+	
 		return output;
-
 
 	}
 }

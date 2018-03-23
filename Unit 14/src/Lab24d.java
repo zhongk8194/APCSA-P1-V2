@@ -13,7 +13,7 @@ public class Lab24d
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Scanner file = new Scanner (new File("Lab24d.dat"));
+		Scanner file = new Scanner (new File("H:\\APCSA\\Unit14\\Unit14_2016\\Unit14-Assignments\\Lab24d.dat"));
 
 
 
