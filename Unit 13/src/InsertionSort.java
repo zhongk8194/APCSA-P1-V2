@@ -15,7 +15,7 @@ class InsertionSort
 	public InsertionSort()
 	{
 
-
+		list = new ArrayList<String>();
 
 	}
 
@@ -24,36 +24,26 @@ class InsertionSort
 	{
 		int loc = 0;
 		
-		for (int i = 0; i < list.size(); i++){
-			int compare = (word).compareTo(list.get(i));
-			
-			if (compare < 0){
-				String temp = list.get(i);
-				list.set(i, word);
-				list.add(i + 1, temp);
-			}
-			
-			else if (compare > 0){
-				String temp = list.get(i);
-				list.set(i, word);
-				list.add(i - 1, temp);
-			}
-			
-			else 
-				list.add(i + 1, word);
+		if (Collections.binarySearch(list, word) < 0){
+			loc = (Collections.binarySearch(list, word) + 1) * -1;
+			list.add(loc, word);
 		}
-
+	
 	}
 
 
 	public void remove(String word)
 	{
-		list.remove(list.indexOf(word));
+		list.remove(word);
 
 	}
 
 	public String toString()
 	{
-		return "";
+		String output = "";
+		for (String word: list){
+			output += word + " ";
+		}
+		return output;
 	}
 }
