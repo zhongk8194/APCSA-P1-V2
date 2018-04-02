@@ -26,10 +26,15 @@ public class BlockTestTwo extends Canvas
 		Block three = new Block(350,350,15,15,Color.RED);
 		three.draw(window);
 
-		//two.draw(window, Color.white);
+		two.draw(window, Color.white);
 
 		Block four = new Block(450,50,20,60, Color.GREEN);
 		four.draw(window);
+		
+		Block five = new Block(400,200);
+		five.draw(window);
+		
+		System.out.println(five.equals(four));
 		
 		//add more test cases			
 	}

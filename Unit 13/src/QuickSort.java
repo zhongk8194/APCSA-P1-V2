@@ -15,7 +15,7 @@ public class QuickSort
 	{
 
 		passCount = 0; 
-		quickSort(list,0,list.length - 1);
+		quickSort(list, 0, list.length - 1);
 		System.out.println();
 
 	}

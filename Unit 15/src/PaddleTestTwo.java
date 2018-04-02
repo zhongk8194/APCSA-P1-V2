@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import static java.lang.Character.*;
+import static java.lang.System.out;
+
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 
@@ -30,16 +32,11 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 		
 		
 		
-		//instantiate a left Paddle
-		
-		
-		
-		
-		//instantiate a right Paddle
-		
-		
+		Paddle left = new Paddle(100,100,40,20,Color.GREEN,6);	//instantiate a left Paddle
 		
 
+		Paddle right = new Paddle(100,100,40,20,Color.BLUE,6);	//instantiate a right Paddle
+	
 
 		keys = new boolean[5];
 
