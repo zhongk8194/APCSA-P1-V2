@@ -18,90 +18,75 @@ public class Block implements Locatable
 
 	public Block()
 	{
-		xPos = 100; 
-		yPos = 150; 
-		width = 10; 
-		height = 10;
-		color = color.black;
-		
+		xPos=100;
+		yPos=150;
+		width=10;
+		height=10;
+		color=Color.BLACK;
 
 	}
 
 	//add other Block constructors - x , y , width, height, color
-
 	public Block(int x, int y){
-		xPos = x; 
-		yPos = y; 
-		width = 10; 
-		height = 10; 
-		color = color.black;
-	}
+		this();
+		xPos=x;
+		yPos=y;
 		
+	}
 	public Block(int x, int y, int w, int h){
-		xPos = x; 
-		yPos = y; 
-		width = w; 
-		height = h; 
-		color = color.black;
+		this();
+		xPos=x;
+		yPos=y;
+		width=w;
+		height=h;
+	
 	}
+	public Block(int x, int y, int w, int h, Color col){
+		this();
+		xPos=x;
+		yPos=y;
+		width=w;
+		height=h;
+		color= col;
 	
-	public Block (int x, int y, int w, int h, Color c){
-		xPos = x; 
-		yPos = y; 
-		width = w; 
-		height = h; 
-		color = c;
 	}
-	
-   //add the other set methods
-	
+	//add the other set methods
 	public void setPos(int x, int y){
-		xPos = x;
-		yPos = y;
+		xPos=x;
+		yPos=y;
 	}
-	
+	   
 	public void setX(int x){
-		xPos = x;
+		xPos=x;
 	}
-	
 	public void setY(int y){
-		yPos = y;
+		yPos=y;
 	}
-	
 	public void setWidth(int w){
-		width = w;
+		width=w;
 	}
-	
 	public void setHeight(int h){
-		height = h;
+		height=h;
 	}
 
    public void setColor(Color col)
    {
-	   color = col;
+	   color=col;
 
    }
-   
-   public int getX()
-   {
+   //add the other get methods
+   public int getX(){
 	   return xPos;
    }
-   
-   public int getY()
-   {
+   public int getY(){
 	   return yPos;
    }
-   
-   public int getWidth()
-   {
-	   return width;
-   }
-   
-   public int getHeight()
-   {
+   public int getHeight(){
 	   return height;
    }
-   
+   public int getWidth(){
+	   return width;
+   }
    public Color getColor(){
 	   return color;
    }
@@ -120,19 +105,19 @@ public class Block implements Locatable
 
    }
    
-	
 	public boolean equals(Object obj)
 	{
-		Block one = (Block)obj;
-		if (xPos == one.xPos && yPos == one.yPos && width == one.width && height == one.height && color == one.color){
+		Block ob = (Block) obj;
+		if (ob.getX()==getX()&&ob.getY()==getY()&&ob.getHeight()==getHeight()&&ob.getWidth()==getWidth()&&ob.getColor()==getColor()){
 			return true;
 		}
+
 		return false;
 	}   
 
-
    //add a toString() method  - x , y , width, height, color
 	public String toString(){
-		return xPos + " " + yPos + " " + width + " " + height + " " + color + " ";
+		return "x: "+getX()+" y: "+getY()+" width: "+getWidth()+" height: "+getHeight()+" color: "+getColor();
 	}
+
 }
