@@ -1,11 +1,3 @@
-/**
- * This class contains class (static) methods
- * that will help you test the Picture class 
- * methods.  Uncomment the methods and the code
- * in the main to test.
- * 
- * @author Barbara Ericson 
- */
 public class PictureTester
 {
   /** Method to test zeroBlue */
@@ -38,6 +30,14 @@ public class PictureTester
 	  Picture beach = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\beach.jpg");
 	  beach.explore();
 	  beach.grayscale();
+	  beach.explore();
+  }
+  
+  public static void testFixUnderwater() 
+  {
+	  Picture beach = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\water.jpg");
+	  beach.explore();
+	  beach.fixUnderwater();
 	  beach.explore();
   }
   
@@ -78,7 +78,7 @@ public class PictureTester
   {
 	  Picture beach = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\beach.jpg");
 	  beach.explore();
-	  beach.mirrorHorizontalBotToTop();
+	  beach.mirrorDiagonal();
 	  beach.explore();
   }
   
@@ -99,6 +99,22 @@ public class PictureTester
     temple.explore();
   }
   
+  public static void testMirrorGull()
+  {
+    Picture temple = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\seagull.jpg");
+    temple.explore();
+    temple.mirrorGull();
+    temple.explore();
+  }
+  
+  public static void testCopy()
+  {
+	  Picture canvas = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\640x480.jpg");
+	  canvas.explore();
+	  canvas.copy2(canvas, 80, 180, 100, 295);
+	  canvas.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -107,10 +123,19 @@ public class PictureTester
     canvas.explore();
   }
   
+  public static void testMyCollage()
+  {
+	  Picture canvas = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\640x480.jpg");
+	  canvas.createCollage();
+	  canvas.explore();
+	  
+  }
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\swan.jpg");
+    swan.explore();
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -124,23 +149,24 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-  //  testZeroBlue(); *
-  //  testKeepOnlyBlue(); *
+  //  testZeroBlue(); 
+  // testKeepOnlyBlue(); 
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-  //  testNegate();
-  //  testGrayscale(); *
-    //testFixUnderwater();
-    //testMirrorVertical(); *
-  //  testMirrorHorizontal(); *
+   //testNegate();
+  //  testGrayscale(); 
+   // testFixUnderwater();
+    //testMirrorVertical(); 
+	//  testMirrorVerticalRightToLeft();
+  //  testMirrorHorizontal(); 
 	// testMirrorHorizontalBotToTop();
     //testMirrorTemple();
-    testMirrorArms();
-    //testMirrorGull();
-   // testMirrorDiagonal();
- //   testCollage(); *
+  //  testMirrorArms();
+   // testMirrorGull();
+  // testMirrorDiagonal();
+ //   testCollage(); 
     //testCopy();
-  //  testEdgeDetection(); *
+ //   testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
@@ -150,3 +176,4 @@ public class PictureTester
     //testGetAverageForColumn(0);
   }
 }
+
