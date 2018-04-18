@@ -41,7 +41,7 @@ public class Ship extends MovingThing
 		}
 		catch(Exception e)
 		{
-			System.out.println("File input error: " + e);
+			System.out.println("error");
 		}
 	}
 
@@ -58,16 +58,16 @@ public class Ship extends MovingThing
 
 	public void move(String direction)
 	{
-		if (direction.equals("LEFT")){
+		if (direction == "left"){
 			setX(getX() - getSpeed());
 		}
-		if (direction.equals("RIGHT")){
+		else if (direction == "right"){
 			setX(getX() + getSpeed());
 		}
-		if (direction.equals("UP")){
+		else if (direction == "up"){
 			setY(getY() - getSpeed());
 		}
-		if (direction.equals("DOWN")){
+		else if (direction == "down"){
 			setY(getY() - getSpeed());
 		}
 		
