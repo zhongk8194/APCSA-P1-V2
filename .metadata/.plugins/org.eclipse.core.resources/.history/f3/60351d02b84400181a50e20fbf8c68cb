@@ -18,24 +18,14 @@ public class AlienHorde
 
 	public AlienHorde(int size)
 	{
-		for (int i = 0; i < size; i++){
-			Alien newAlien = new Alien();
-			int x = i % 7 * 100 + 75;
-			int y = i / 7 * newAlien.getHeight() * 10 - 700;
-			newAlien.setPos(x - newAlien.getWidth() / 2, y);
-			add(newAlien);
-		}
-		
 	}
 
 	public void add(Alien al)
 	{
-		aliens.add(al);
 	}
 
 	public void drawEmAll( Graphics window )
 	{
-		aliens.forEach(alien -> alien.draw(window));
 	}
 
 	public void moveEmAll()
@@ -44,7 +34,6 @@ public class AlienHorde
 
 	public void removeDeadOnes(List<Ammo> shots)
 	{
-		
 	}
 
 	public String toString()

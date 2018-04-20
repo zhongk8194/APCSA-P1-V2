@@ -57,14 +57,10 @@ public class Alien extends MovingThing
 
    public void move(String direction)
 	{
-		if (direction.equals("DOWN"))
-		{
-			if (getX() > StarFighter.WIDTH || getX() < 20)
-			{
-				speed = -speed;
-				setY(getY() + 25);
-			}
-			setX(getX() - getSpeed());
+	   setX(getX() + getSpeed());
+	   if (getX() > StarFighter.WIDTH || getX() < 20)
+	   {
+		   speed = -speed;	
 		}
 	}
 

@@ -68,7 +68,7 @@ public class Ship extends MovingThing
 			setY(getY() - getSpeed());
 		}
 		if (direction.equals("DOWN")){
-			setY(getY() + getSpeed());
+			setY(getY() - getSpeed());
 		}
 		
 	}

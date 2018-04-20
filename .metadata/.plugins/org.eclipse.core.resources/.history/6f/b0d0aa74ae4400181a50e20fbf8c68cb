@@ -37,8 +37,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		keys = new boolean[5];
 		ship = new Ship(350, 400, 100, 100, 3);
-		alienOne =  new Alien(330, 800, 100, 100, 3);
-		alienTwo = new Alien(370, 800, 100, 100, 3);
+		
 
 		//instantiate other instance variables
 		//Ship, Alien
@@ -57,10 +56,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	{
 		//set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D)window;
-		ship.draw(window);
-		alienOne.draw(window);
-		alienTwo.draw(window);
-		
+
 		//take a snap shop of the current screen and same it as an image
 		//that is the exact same width and height as the current screen
 		if(back==null)
@@ -99,6 +95,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			ship.move("SPACE");
 		}
+
+		ship.draw(window);
 		//add code to move Ship, Alien, etc.
 
 
