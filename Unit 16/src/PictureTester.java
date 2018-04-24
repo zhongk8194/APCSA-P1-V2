@@ -134,10 +134,19 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\swan.jpg");
-    swan.explore();
-    swan.edgeDetection(10);
-    swan.explore();
+	  Picture swan = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\swan.jpg");
+	  swan.explore();
+	  swan.edgeDetection(10);
+	  swan.explore();
+  }
+  
+  public static void testSharpen(int x, int y, int w, int h)
+  {
+	  Picture redMoto = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\redMotorcycle.jpg");
+	  redMoto.explore();
+	  redMoto.sharpen(x,y,w,h);
+	  redMoto.explore();
+
   }
   
  
@@ -161,12 +170,12 @@ public class PictureTester
   //  testMirrorHorizontal(); 
 	// testMirrorHorizontalBotToTop();
     //testMirrorTemple();
-    testMirrorArms();
+   // testMirrorArms();
    // testMirrorGull();
   // testMirrorDiagonal();
  //   testCollage(); 
     //testCopy();
- //   testEdgeDetection();
+  //  testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
@@ -174,6 +183,7 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+	  testSharpen(50,50,500,400);
   }
 }
 

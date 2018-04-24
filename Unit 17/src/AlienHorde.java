@@ -35,16 +35,32 @@ public class AlienHorde
 
 	public void drawEmAll( Graphics window )
 	{
-		aliens.forEach(alien -> alien.draw(window));
+		for (int i = 0; i < aliens.size(); i++){
+			aliens.get(i).draw(window);
+		}
 	}
 
 	public void moveEmAll()
 	{
+		for (int i = 0; i < aliens.size(); i++)
+		{
+			aliens.get(i).move("DOWN");
+		}
 	}
 
 	public void removeDeadOnes(List<Ammo> shots)
 	{
-		
+		for (int i = 0; i < shots.size(); i++)
+		{
+			for (int x = 0; x < aliens.size(); x++)
+			{
+				if (shots.get(i).isCollide(aliens.get(x)))
+				{
+					aliens.remove(x);
+					shots.remove(i);
+			}
+		}
+
 	}
 
 	public String toString()

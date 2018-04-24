@@ -448,6 +448,51 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void sharpen(int x, int y, int w, int h)
+  {
+	  System.out.println("Kelly Zhong, Period 1, 4/24/18, Computer # 10");
+	  Pixel newPixel = null;
+	  Pixel originalPixel = null;
+	  Color newColor = null;
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  for (int row = y; row < h; row++)
+	  {
+	    for (int col = x; col < w; col++)
+	    {
+	    	originalPixel = pixels[row][col];
+	    	newPixel = pixels[row - 1][col - 1];
+	    	originalPixel.setRed(originalPixel.getRed() + ((originalPixel.getRed() - newPixel.getRed())/2));
+	    	originalPixel.setBlue(originalPixel.getBlue() + ((originalPixel.getBlue() - newPixel.getBlue())/2));
+	    	originalPixel.setGreen(originalPixel.getGreen() + ((originalPixel.getGreen() - newPixel.getGreen())/2));
+	    	if (originalPixel.getRed() > 255)
+	    	{
+	    		originalPixel.setRed(255);
+	    	}
+	    	if (originalPixel.getBlue() > 255)
+	    	{
+	    		originalPixel.setBlue(255);
+	    	}
+	    	if (originalPixel.getGreen() > 255)
+	    	{
+	    		originalPixel.setGreen(255);
+	    	}
+	    	if (originalPixel.getRed() < 0)
+	    	{
+	    		originalPixel.setRed(0);
+	    	}
+	    	if (originalPixel.getBlue() < 0)
+	    	{
+	    		originalPixel.setBlue(0);
+	    	}
+	    	if (originalPixel.getGreen() < 0)
+	    	{
+	    		originalPixel.setGreen(0);
+	    	}
+	    }
+	  }
+  }
+	
   
   /* Main method for testing - each class in Java can have a main 
    * method 

@@ -21,7 +21,6 @@ INDEX VERSION 1.130+C:\Users\zhongk8194\Documents\GitHub\APCSA-P1-V2\.metadata\.
 1442487239.index
 1543766311.index
 328889101.index
-1701668838.index
 963700148.index
 3524570317.index
 2869487852.index

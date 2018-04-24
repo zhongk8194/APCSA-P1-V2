@@ -47,14 +47,9 @@ public class Ammo extends MovingThing
 	}
 	
 	
-	public void move( String direction ) //is this needed?
+	public void move( String direction ) 
 	{
-		if (direction.equals("LEFT")){
-			setX(getX() - getSpeed());
-		}
-		if (direction.equals("RIGHT")){
-			setX(getX() + getSpeed());
-		}
+		
 		if (direction.equals("UP")){
 			setY(getY() - getSpeed());
 		}
