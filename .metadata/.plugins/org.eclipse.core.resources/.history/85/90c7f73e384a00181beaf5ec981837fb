@@ -78,7 +78,9 @@ public class Alien extends MovingThing
 	   setX(getX()+getSpeed());
 	   if(getX() < 0 || getX()>760)
 		   setSpeed(-getSpeed());
-
+	   //4.18.18 having issues with making the aliens move continuously
+	   //4.20.18 solved it!
+		   
 	}
    
    

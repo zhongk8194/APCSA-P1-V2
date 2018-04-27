@@ -134,7 +134,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			//setBackground(Color.black);			
 			graphToBack.setColor(Color.RED);
-			graphToBack.drawString("YOU WON!",350, 350);
+			graphToBack.drawString("YOU WON!",400, 400);
 		}
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 

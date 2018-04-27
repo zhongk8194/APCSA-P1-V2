@@ -1,3 +1,9 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -25,8 +31,7 @@ public class Bullets
 	{
 		for (int i = 0; i < ammo.size(); i++)
 		{
-			window.setColor(Color.yellow);
-			window.fillRect(ammo.get(i).getX(), ammo.get(i).getY(), 5, 5);
+			ammo.get(i).draw(window);
 		}
 	}
 
@@ -34,25 +39,15 @@ public class Bullets
 	{
 		for (int i = 0; i < ammo.size(); i++)
 		{
-			ammo.get(i).setY(ammo.get(i).getY()+ammo.get(i).getSpeed());
+			ammo.get(i).move("DOWN");
 		}
 	}
 
-	public void cleanEmUp(Graphics window)
+	public void cleanEmUp()
 	{
 		for (int i = 0; i < ammo.size(); i++)
 		{
-			if(ammo.get(i).getY()<-5)
-				ammo.get(i).setSpeed(0);
-			window.setColor(Color.black);
-			window.fillRect(ammo.get(i).getX(),ammo.get(i).getY(),5,7);
-			if(ammo.get(i).getSpeed()==0)
-			{
-				window.setColor(Color.black);
-				window.fillRect(ammo.get(i).getX(),ammo.get(i).getY(),5,7);
-				ammo.remove(i);
-			}
-			
+			ammo.remove(i);
 		}
 	}
 

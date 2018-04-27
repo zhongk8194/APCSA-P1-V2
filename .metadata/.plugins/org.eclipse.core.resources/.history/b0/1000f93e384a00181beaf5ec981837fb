@@ -96,6 +96,15 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde.removeDeadOnes(shots.getList());
 		
 
+
+		/**if(keys[0] == true)
+			ship.move("LEFT");
+		if(keys[1] == true)
+			ship.move("RIGHT");
+		if(keys[2] == true)
+			ship.move("UP");
+		if(keys[3] == true)
+			ship.move("DOWN");**/
 		if (ship.getX()>=-10 && game==true)
 		{
 			if(keys[0] == true) ship.move("LEFT");
@@ -128,13 +137,27 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			horde.moveEmAll("");
 		}
+	/**	Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+			public void run() {
+				ship.move();
+			}
+		}, 500);
+		
+		if (shots.touchingShip(window, ship) == true)
+		{
+			setBackground(Color.black);	
+			graphToBack.setColor(Color.RED);
 
+			graphToBack.drawString("YOU LOSE!",300, 300);		
+		}
+		**/
 		
 		if (horde.gameIsWon()==true)
 		{
 			//setBackground(Color.black);			
-			graphToBack.setColor(Color.RED);
-			graphToBack.drawString("YOU WON!",350, 350);
+			graphToBack.setColor(Color.PINK);
+			graphToBack.drawString("YOU WON!",300, 300);
 		}
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 

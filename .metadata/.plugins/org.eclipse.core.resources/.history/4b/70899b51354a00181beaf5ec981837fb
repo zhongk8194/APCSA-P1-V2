@@ -35,7 +35,7 @@ public class Ship extends MovingThing
 		
 		try
 		{
-			image = ImageIO.read(new File("H:\\APCSA\\Starfighter\\ship.jpg"));
+			image = ImageIO.read(new File("H:\\APCS\\APCSA-liur1190\\unit 17\\src\\ship.jpg"));
 		}
 		catch(Exception e)
 		{
