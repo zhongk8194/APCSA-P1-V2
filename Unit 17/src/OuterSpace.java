@@ -22,10 +22,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	//uncomment once you are ready for this part
 	 
 	private AlienHorde horde;
+	//private Ammo ammo;
 	private Bullets shots;
 	private boolean game;
 	private boolean[] keys;
 	private BufferedImage back;
+	private Star star; //added
 
 	public OuterSpace()
 	{
@@ -44,6 +46,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		shots.add(new Ammo(-10,-10,0));
 		//put it in negative position so that it doesn't appear on screen
 		game = true;
+		star = new Star(300,300,70,70,2); //added
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -92,7 +95,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		shots.drawEmAll(graphToBack);
 		horde.drawEmAll(graphToBack);
 		//horde.moveEmAll("");
-		
+		star.draw(graphToBack); //added
+	//	star.touched(ship);
 		horde.removeDeadOnes(shots.getList());
 		
 
@@ -121,23 +125,39 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			//ammo = new Ammo(400,420,3);
 			//ammo.draw(window);
 			shots.add(new Ammo(ship.getX()+25,ship.getY(),-1));
+			
 		}
 			
 	
 		if (game==true)
 		{
 			horde.moveEmAll("");
+			star.move("");
 		}
 
 		
 		if (horde.gameIsWon()==true)
 		{
-			//setBackground(Color.black);			
+			//setBackground(Color.black);	
+			graphToBack.clearRect(0, 0, 800, 600);
 			graphToBack.setColor(Color.RED);
-			graphToBack.drawString("YOU WON!",350, 350);
+			graphToBack.drawString("YOU WON!", 350, 300);
 		}
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 
+		if (star.collide(window, ship) == true) //added
+		{
+			game = false;
+			
+		}
+		
+		if (game == false)
+		{
+			graphToBack.clearRect(0, 0, 800, 600);
+			//setBackground(Color.black);
+			graphToBack.setColor(Color.RED);
+			graphToBack.drawString("YOU LOSE!", 350, 300);
+		}
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	}

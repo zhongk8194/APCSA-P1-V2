@@ -1,11 +1,6 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class - 
-//Lab  -
-
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -13,7 +8,8 @@ import javax.imageio.ImageIO;
 public class Ammo extends MovingThing
 {
 	private int speed;
-
+	private Color color;
+	
 	public Ammo()
 	{
 		this(0,0,0);
@@ -22,17 +18,23 @@ public class Ammo extends MovingThing
 	public Ammo(int x, int y)
 	{
 		this(x,y,0);
+		
+		
 	}
 
 	public Ammo(int x, int y, int s)
 	{
-		setPos(x,y);
+		//add code
+		super(x,y);
 		setSpeed(s);
+		
+		
 	}
 
 	public void setSpeed(int s)
 	{
-	   speed = s;
+	   //add code
+		speed = s;
 	}
 
 	public int getSpeed()
@@ -40,26 +42,33 @@ public class Ammo extends MovingThing
 	   return speed;
 	}
 
+	public void setColor(Color color)
+	{
+		this.color = color;
+	}
+	
 	public void draw( Graphics window )
 	{
-		window.setColor(Color.YELLOW);
-		window.fillRect(getX(), getY(), 10, 10);
+		//add code to draw the ammo
+		//window.setColor(Color.black);
+	//	window.fillRect(getX(),getY(),5,5);
+		move("");
+		window.setColor(Color.yellow);
+		window.fillRect(5,5,5,5);
+		
+
 	}
 	
 	
-	public void move( String direction ) 
+	public void move( String direction )
 	{
+		//add code to draw the ammo
+	//	setY(getY()-getSpeed());
 		
-		if (direction.equals("UP")){
-			setY(getY() - getSpeed());
-		}
-		if (direction.equals("DOWN")){
-			setY(getY() + getSpeed());
-		}
 	}
 
 	public String toString()
 	{
-		return super.toString() + " " + getSpeed();
+		return "";
 	}
 }

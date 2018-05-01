@@ -17,9 +17,7 @@ public class Ammo extends MovingThing
 
 	public Ammo(int x, int y)
 	{
-		//add code
-		super(x,y);
-		setSpeed(3);
+		this(x,y,0);
 		
 		
 	}
@@ -52,11 +50,12 @@ public class Ammo extends MovingThing
 	public void draw( Graphics window )
 	{
 		//add code to draw the ammo
-		window.setColor(Color.black);
-		window.fillRect(getX(),getY(),5,5);
+		//window.setColor(Color.black);
+	//	window.fillRect(getX(),getY(),5,5);
 		move("");
 		window.setColor(Color.yellow);
 		window.fillRect(getX(),getY(),5,5);
+		
 
 	}
 	
@@ -64,7 +63,7 @@ public class Ammo extends MovingThing
 	public void move( String direction )
 	{
 		//add code to draw the ammo
-		setY(getY()-getSpeed());
+	//	setY(getY()-getSpeed());
 		
 	}
 
