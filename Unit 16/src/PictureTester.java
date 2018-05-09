@@ -149,6 +149,23 @@ public class PictureTester
 
   }
   
+  public static void testEncode()
+  {
+	  Picture canvas = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\msg.jpg");
+	  canvas.explore();
+	  canvas.encode(canvas);
+	  canvas.explore();
+	  
+  }
+  
+  public static void testDecode()
+  {
+	  Picture canvas = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\msg.jpg");
+	  canvas.explore();
+	  canvas.decode();
+	  canvas.explore();
+	  
+  }
  
   
   /** Main method for testing.  Every class can have a main
@@ -183,7 +200,9 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-	  testSharpen(50,50,500,400);
+	 // testSharpen(50,50,500,400);
+	  testEncode();
+	//  testDecode();
   }
 }
 
