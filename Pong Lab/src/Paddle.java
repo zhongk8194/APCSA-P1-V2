@@ -69,7 +69,7 @@ public class Paddle extends Block
    public void moveLeftAndDraw(Graphics window)
    {
 	   draw(window,Color.WHITE);
-	   setX(getX()+speed);
+	   setX(getX()-speed);
 	   draw(window);
    }
 

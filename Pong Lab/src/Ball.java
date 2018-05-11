@@ -61,9 +61,7 @@ public class Ball extends Block implements Collidable
    	//draw a white ball at old ball location
 	   draw(window,Color.WHITE);
       setX(getX()+xSpeed);
-		//setY
       setY(getY()+ySpeed);
-		//draw the ball at its new location
       draw(window);
       
    }
@@ -121,9 +119,8 @@ public class Ball extends Block implements Collidable
 	public boolean didCollideTop(Object obj) {
 		// TODO Auto-generated method stub
 		Paddle paddle = (Paddle)obj;
-		if (getY()+getHeight()>=paddle.getY() && getY() < paddle.getY()+paddle.getHeight() && (getX()>=paddle.getX() && getX()+getWidth()<=paddle.getX()+paddle.getWidth())){
-		//if ((getY()>=paddle.getY() && getY()<=paddle.getY()+paddle.getHeight())
-			//	||getY()>=paddle.getY() && getY()<paddle.getY()+paddle.getHeight()){
+		if (getY() <= paddle.getY() && getY() <= paddle.getY() + paddle.getHeight() && (getX() >= paddle.getX() && getX() + getWidth() <= paddle.getHeight())) {
+		//if (getY()+getHeight()>=paddle.getY() && getY() < paddle.getY()+paddle.getHeight() && (getX()>=paddle.getX() && getX()+getWidth()<=paddle.getX()+paddle.getWidth())){
 			return true;
 		}
 		return false;
@@ -133,12 +130,75 @@ public class Ball extends Block implements Collidable
 	public boolean didCollideBottom(Object obj) {
 		// TODO Auto-generated method stub
 		Paddle paddle = (Paddle) obj;
-		if (getY()+getHeight()>paddle.getY() && getY() <= paddle.getY()+paddle.getHeight() && (getX()>=paddle.getX() && getX()+getWidth()<=paddle.getX()+paddle.getWidth())){
-		//if ((getY()>=paddle.getY() && getY()<=paddle.getY()+paddle.getHeight())
-				//||getY()+getHeight()>=paddle.getY()&&getY()+getHeight()<paddle.getY()+paddle.getHeight()){
-					return true;
-							
-				}
+		if (getY() >= paddle.getY() && getY() <= paddle.getY() + paddle.getHeight() && (getX() >= paddle.getX() && getX() <= paddle.getWidth() + paddle.getX())){
+		//if (getY()+getHeight()>paddle.getY() && getY() <= paddle.getY()+paddle.getHeight() && (getX()>=paddle.getX() && getX()+getWidth()<=paddle.getX()+paddle.getWidth())){			
+		return true;			
+		}
 		return false;
 	}
+	
+	 public boolean didCollideLeftWall(Object obj){
+		   if(getX()<=10) {
+			   return true;
+		   }
+		   return false;
+	   }
+	   public boolean didCollideRightWall(Object obj){
+		   if(getX()>=780) {
+			   return true;
+		   }
+		   return false;
+	   }
+	   public boolean didCollideTopWall(Object obj){
+		   if(getY()<=10)
+			{
+				return true;
+			}
+		   return false;
+	   }
+	   public boolean didCollideBottomWall(Object obj){
+		   if(getY()>=510)
+			{
+				return true;
+			}
+		   return false;
+	   }
+	
+	/**public boolean didCollideLeftTile(Object obj) {
+		Tile tile = (Tile) obj;
+		if (getX()<=tile.getX()+tile.getWidth()&&getX()>tile.getX()&&(getY()>=tile.getY() && getY()<=tile.getY()+tile.getHeight())){
+			System.out.println("collide left");
+			return true;
+		}
+		return false;
+	}
+
+	public boolean didCollideRightTile(Object obj) {
+		Tile tile = (Tile) obj;
+		if (getX()+getWidth()>=tile.getX()&&getX()<tile.getX()&&(getY()>=tile.getY() && getY()<=tile.getY()+tile.getHeight())){
+			System.out.println("collide right");
+			return true;
+		}
+		return false;
+	}
+
+	public boolean didCollideTopTile(Object obj) {
+		Tile tile = (Tile) obj;
+		if (getY() <= tile.getY() && getY() <= tile.getY() + tile.getHeight() && (getX() >= tile.getX() && getX() + getWidth() <= tile.getHeight())) {
+		//if (getY()+getHeight()>=tile.getY() && getY() < tile.getY()+tile.getHeight() && (getX()>=tile.getX() && getX()+getWidth()<=tile.getX()+tile.getWidth())){
+			System.out.println("collide top");
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean didCollideBottomTile(Object obj) {
+		Tile tile = (Tile) obj;
+		if (getY() >= tile.getY() && getY() <= tile.getY() + tile.getHeight() && (getX() >= tile.getX() && getX() <= tile.getWidth() + tile.getX())){
+		//if (getY()+getHeight()>tile.getY() && getY() <= tile.getY()+tile.getHeight() && (getX()>=tile.getX() && getX()+getWidth()<=tile.getX()+tile.getWidth())){
+			System.out.println("collide bottom");
+			return true;			
+		}
+		return false;
+	}**/
 }

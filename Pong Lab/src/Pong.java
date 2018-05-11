@@ -31,16 +31,11 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 	public Pong()
 	{
-		//set up all variables related to the game
-	
-		//instantiate a Ball
 		//ball = new Ball(350,200);
 		ball = new BlinkyBall(350,200);
 		//ball = new SpeedUpBall(350,200);
-		
-		//instantiate a Paddle
+
 		Paddle = new Paddle(60, 60, 40, 40, Color.BLACK, 5);
-	
 		keys = new boolean[4];
 
     	setBackground(Color.WHITE);
@@ -72,22 +67,11 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		Paddle.draw(graphToBack);
 
 		//see if ball hits left wall or right wall
-//!(ball.getX()>=leftPaddle.getX() && ball.getX()+ball.getWidth()<=rightPaddle.getX()+rightPaddle.getWidth())
 		if(!(ball.getX()>0 && ball.getX()+ball.getWidth()<getWidth()))
 		{
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
+			//ball.setXSpeed(0);
+			//ball.setYSpeed(0);
 			ball.setXSpeed(-ball.getXSpeed());
-		/**	if (ball.getX() <= Paddle.getX()){
-				graphToBack.setColor(Color.WHITE);
-				
-				
-			}
-			else if (ball.getX() >= Paddle.getX()+Paddle.getWidth()){
-				graphToBack.setColor(Color.WHITE);
-	
-			}
-			**/
 			
 			ball.draw(graphToBack, Color.WHITE);
 			//ball = new Ball(350,200);
@@ -115,84 +99,183 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		leftTiles = new ArrayList<Tile>();
 		rightTiles = new ArrayList<Tile>();
 		
-		for (int i = 0; i < 800; i += 50)
+		for (int i = 0; i < 800; i += 40)
 		{
-			lowerTiles.add(new Tile(i, 520, 48, 30, Color.darkGray));
-			lowerTiles.add(new Tile(i, 480, 48, 30, Color.darkGray));
-			upperTiles.add(new Tile(i, 20, 48, 30, Color.pink));
-			upperTiles.add(new Tile(i, 60, 48, 30, Color.pink));
+			upperTiles.add(new Tile(i, 0, 38, 30, Color.pink));
+			upperTiles.add(new Tile(i, 33, 38, 30, Color.pink));
+			lowerTiles.add(new Tile(i, 531, 38, 30, Color.pink));
+			lowerTiles.add(new Tile(i, 498, 38, 30, Color.pink));
 			
 		}
 		
-		for (int i = 0; i < 600; i += 50)
+		for (int i = 63; i < 500; i += 40)
 		{
-			leftTiles.add(new Tile(20, i, 30, 48, Color.lightGray));
-			leftTiles.add(new Tile(60, i, 30, 48, Color.lightGray));
-			rightTiles.add(new Tile(740, i, 30, 48, Color.red));
-			rightTiles.add(new Tile(700, i, 30, 48, Color.red));
+			leftTiles.add(new Tile(0, i, 30, 38, Color.pink));
+			leftTiles.add(new Tile(33, i, 30, 38, Color.pink));
+			rightTiles.add(new Tile(722, i, 30, 38, Color.pink));
+			rightTiles.add(new Tile(755, i, 30, 38, Color.pink));
 			
 		}
 		
 		for (Tile t: upperTiles){
 			t.draw(graphToBack);
 		}
+		
 		for (Tile t: lowerTiles){
 			t.draw(graphToBack);
 		}
+		
 		for (Tile t: leftTiles){
 			t.draw(graphToBack);
 		}
+		
 		for (Tile t: rightTiles){
 			t.draw(graphToBack);
 		}
 		
+		for (Tile t: upperTiles){
+			if (ball.didCollideLeftWall(t) || ball.didCollideRightWall(t))
+			{
+				t.setColor(Color.white);
+				graphToBack.fillRect(t.getX(), t.getY(), t.getWidth(), t.getHeight());
+				t.draw(graphToBack);
+				upperTiles.remove(t);
+				ball.setXSpeed(-ball.getXSpeed());
+			}
+			
+			if (ball.didCollideTopWall(t) || ball.didCollideBottomWall(t))
+			{
+				t.setColor(Color.white);
+				graphToBack.fillRect(t.getX(), t.getY(), t.getWidth(), t.getHeight());
+				t.draw(graphToBack);
+				upperTiles.remove(t);
+				ball.setYSpeed(-ball.getYSpeed());
+			}
+		}
+		
+		for (Tile t: lowerTiles){
+			if (ball.didCollideLeftWall(t) || ball.didCollideRightWall(t))
+			{
+				t.setColor(Color.white);
+				graphToBack.fillRect(t.getX(), t.getY(), t.getWidth(), t.getHeight());
+				t.draw(graphToBack);
+				lowerTiles.remove(t);
+				ball.setXSpeed(-ball.getXSpeed());
+			}
+			
+			if (ball.didCollideTopWall(t) || ball.didCollideBottomWall(t))
+			{
+				t.setColor(Color.white);
+				graphToBack.fillRect(t.getX(), t.getY(), t.getWidth(), t.getHeight());
+				t.draw(graphToBack);
+				lowerTiles.remove(t);
+				ball.setYSpeed(-ball.getYSpeed());
+			}
+		}
+		
+		for (Tile t: leftTiles){
+			if (ball.didCollideLeftWall(t) || ball.didCollideRightWall(t))
+			{
+				t.setColor(Color.white);
+				graphToBack.fillRect(t.getX(), t.getY(), t.getWidth(), t.getHeight());
+				t.draw(graphToBack);
+				leftTiles.remove(t);
+				ball.setXSpeed(-ball.getXSpeed());
+			}
+			
+			if (ball.didCollideTopWall(t) || ball.didCollideBottomWall(t))
+			{
+				t.setColor(Color.white);
+				graphToBack.fillRect(t.getX(), t.getY(), t.getWidth(), t.getHeight());
+				t.draw(graphToBack);
+				leftTiles.remove(t);
+				ball.setYSpeed(-ball.getYSpeed());
+			}
+		}
+		for (Tile t: rightTiles){
+			if (ball.didCollideLeftWall(t) || ball.didCollideRightWall(t))
+			{
+				t.setColor(Color.white);
+				graphToBack.fillRect(t.getX(), t.getY(), t.getWidth(), t.getHeight());
+				t.draw(graphToBack);
+				rightTiles.remove(t);
+				ball.setXSpeed(-ball.getXSpeed());
+			}
+			
+			if (ball.didCollideTopWall(t) || ball.didCollideBottomWall(t))
+			{
+				t.setColor(Color.white);
+				graphToBack.fillRect(t.getX(), t.getY(), t.getWidth(), t.getHeight());
+				t.draw(graphToBack);
+				rightTiles.remove(t);
+				ball.setYSpeed(-ball.getYSpeed());
+			}
+		}
 	
 		//see if the paddles need to be moved
 	
 		if(keys[0] == true)
 		{
-			//move left paddle up and draw it on the window
-			Paddle.moveUpAndDraw(graphToBack);
+			Paddle.moveLeftAndDraw(graphToBack);
 		}
 		if(keys[1] == true)
 		{
-			//move left paddle down and draw it on the window
-			Paddle.moveDownAndDraw(graphToBack);
-			
+			Paddle.moveRightAndDraw(graphToBack);
 		}
 		if(keys[2] == true)
 		{
-			Paddle.moveLeftAndDraw(graphToBack);
+			Paddle.moveUpAndDraw(graphToBack);
 		}
 		if(keys[3] == true)
 		{
-			Paddle.moveRightAndDraw(graphToBack);
+			Paddle.moveDownAndDraw(graphToBack);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
-
+	
 	public void keyPressed(KeyEvent e)
 	{
-		switch(toUpperCase(e.getKeyChar()))
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			case 'I' : keys[0]=true; break;
-			case 'M' : keys[1]=true; break;
-			case 'J' : keys[2]=true; break;
-			case 'L' : keys[3]=true; break;
+			keys[0] = true;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			keys[1] = true;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			keys[2] = true;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			keys[3] = true;
+		}
+		repaint();
 	}
 
 	public void keyReleased(KeyEvent e)
 	{
-		switch(toUpperCase(e.getKeyChar()))
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 		{
-			case 'I' : keys[0]=false; break;
-			case 'M' : keys[1]=false; break;
-			case 'J' : keys[2]=false; break;
-			case 'L' : keys[3]=false; break;
+			keys[0] = false;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			keys[1] = false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			keys[2] = false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			keys[3] = false;
+		}
+		repaint();
 	}
+
 
 	public void keyTyped(KeyEvent e){}
 	
