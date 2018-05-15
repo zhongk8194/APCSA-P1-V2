@@ -15,7 +15,7 @@ public class Paddle extends Block
    public Paddle()
    {
 	   super(10,10);
-       speed = 5;
+       speed =5;
    }
 
 
@@ -45,49 +45,38 @@ public class Paddle extends Block
 
    public void moveUpAndDraw(Graphics window)
    {
-	   Color temp = getColor();
 	   draw(window, Color.WHITE);
 	   setY(getY()-speed);
-	   draw(window, temp);
+	   draw(window);
 
    }
 
    public void moveDownAndDraw(Graphics window)
    {
-	   Color temp = getColor();
-		draw(window, Color.WHITE);
-		setY(getY()+speed);
-		draw(window, temp);
+	   draw(window,Color.WHITE);
+	   setY(getY()+speed);
+	   draw(window);
 
    }
    
    public void moveRightAndDraw(Graphics window)
    {
-	   Color temp = getColor();
-	   draw(window, Color.WHITE);
+	   draw(window,Color.WHITE);
 	   setX(getX()+speed);
-	   draw(window, temp);
+	   draw(window);
    }
    
    public void moveLeftAndDraw(Graphics window)
    {
-	   Color temp = getColor();
-	   draw(window, Color.WHITE);
+	   draw(window,Color.WHITE);
 	   setX(getX()-speed);
-	   draw(window, temp);
+	   draw(window);
    }
 
    //add get methods
    public int getSpeed(){
 	   return speed;
    }
-   
-   public boolean equals(Object obj)
-	{
- 		Paddle other = (Paddle) obj;
- 		return super.equals(other) 
-				&& this.getSpeed() == other.getSpeed();	
-	}
    
    //add a toString() method
    public String toString(){

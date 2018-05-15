@@ -20,20 +20,22 @@ import java.awt.event.ActionListener;
 public class Pong extends Canvas implements KeyListener, Runnable
 {
 	private Ball ball;
-	private Paddle paddle;
+	private Paddle Paddle;
 	private boolean[] keys;
 	private BufferedImage back;
-	private Tile tiles;
-	private Wall wall;
+	private ArrayList<Tile> upperTiles;
+	private ArrayList<Tile> lowerTiles;
+	private ArrayList<Tile> leftTiles;
+	private ArrayList<Tile> rightTiles;
+
 
 	public Pong()
 	{
 		//ball = new Ball(350,200);
 		ball = new BlinkyBall(350,200);
 		//ball = new SpeedUpBall(350,200);
-		wall = new Wall(0, 770, 10, 550);
-		paddle = new Paddle(60, 60, 40, 40, Color.BLACK, 5);
-		tiles = new Tile();
+
+		Paddle = new Paddle(60, 60, 40, 40, Color.BLACK, 5);
 		keys = new boolean[4];
 
     	setBackground(Color.WHITE);
@@ -61,60 +63,16 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 
-		int x = tiles.removeDeadOnes(ball);
-		
 		ball.moveAndDraw(graphToBack);
-		paddle.draw(graphToBack);
-		tiles.drawEmAll(graphToBack);
+		Paddle.draw(graphToBack);
+		
 
 
-		if(ball.didCollideLeftWall(wall)) {
-			
-			ball.setXSpeed(-ball.getXSpeed());
-
-		}
-			
-		if(ball.didCollideRightWall(wall)) {
-			
-			
-			ball.setXSpeed(-ball.getXSpeed());
-			
-		}
-		
-		if(ball.didCollideTopWall(wall))
-		{
-			ball.setYSpeed(-ball.getYSpeed());
-		}
-		
-		if(ball.didCollideBottomWall(wall))
-		{
-			ball.setYSpeed(-ball.getYSpeed());
-		}
-		
-		if(ball.didCollidePaddle(paddle)&&ball.didCollidePaddleY(paddle)){
-			ball.setYSpeed(-ball.getYSpeed());
-		}
-		
-		if(ball.didCollidePaddle(paddle)&&ball.didCollidePaddleX(paddle)){
-			ball.setXSpeed(-ball.getXSpeed());
-		}
-	
-	
-		
-		
-		if(x==1){
-			ball.setYSpeed(-ball.getYSpeed());
-		}
-		if(x==2){
-			ball.setXSpeed(-ball.getXSpeed());
-		}
-		
-		/**
 		//see if ball hits left wall or right wall
 		if(!(ball.getX()>0 && ball.getX()+ball.getWidth()<getWidth()))
 		{
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
+			//ball.setXSpeed(0);
+			//ball.setYSpeed(0);
 			ball.setXSpeed(-ball.getXSpeed());
 			
 			ball.draw(graphToBack, Color.WHITE);
@@ -126,11 +84,11 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		}
 
 		//see if the ball hits the top or bottom wall 
-		if (!(ball.getY()>=0 && ball.getY()<=getHeight())){
+		/**if (!(ball.getY()>=0 && ball.getY()<=getHeight())){
 			ball.setYSpeed(-ball.getYSpeed());
-		}
+		}**/
 		
-		/**if (ball.getX() >= 0 && ball.getX() <= 10 || (ball.getX()> 790 && ball.getX() <= 800))
+		if (ball.getX() >= 0 && ball.getX() <= 10 || (ball.getX()> 790 && ball.getX() <= 800))
 		{
 			ball.setXSpeed(-ball.getXSpeed());
 		}
@@ -149,7 +107,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			ball.setYSpeed(-ball.getYSpeed());
 		}
-	
 		
 		upperTiles = new ArrayList<Tile>();
 		lowerTiles = new ArrayList<Tile>();
@@ -189,10 +146,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		for (Tile t: rightTiles){
 			t.draw(graphToBack);
 		}
-	
-		**/		
 		
-		/**
 		for (Tile t: upperTiles){
 			if (ball.didCollideLeftTile(t) || ball.didCollideRightTile(t))
 			{
@@ -201,8 +155,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				t.draw(graphToBack);
 				upperTiles.remove(t);
 				ball.setXSpeed(-ball.getXSpeed());
-				ball.setYSpeed(-ball.getYSpeed());
-				ball.moveAndDraw(graphToBack);
 			}
 			
 			if (ball.didCollideTopTile(t) || ball.didCollideBottomTile(t))
@@ -212,7 +164,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				t.draw(graphToBack);
 				upperTiles.remove(t);
 				ball.setYSpeed(-ball.getYSpeed());
-				ball.moveAndDraw(graphToBack);
 			}
 		}
 		
@@ -224,7 +175,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				t.draw(graphToBack);
 				lowerTiles.remove(t);
 				ball.setXSpeed(-ball.getXSpeed());
-				ball.moveAndDraw(graphToBack);
 			}
 			
 			if (ball.didCollideTopTile(t) || ball.didCollideBottomTile(t))
@@ -234,7 +184,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				t.draw(graphToBack);
 				lowerTiles.remove(t);
 				ball.setYSpeed(-ball.getYSpeed());
-				ball.moveAndDraw(graphToBack);
 			}
 		}
 		
@@ -246,7 +195,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				t.draw(graphToBack);
 				leftTiles.remove(t);
 				ball.setXSpeed(-ball.getXSpeed());
-				ball.moveAndDraw(graphToBack);
 			}
 			
 			if (ball.didCollideTopTile(t) || ball.didCollideBottomTile(t))
@@ -256,7 +204,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				t.draw(graphToBack);
 				leftTiles.remove(t);
 				ball.setYSpeed(-ball.getYSpeed());
-				ball.moveAndDraw(graphToBack);
 			}
 		}
 		for (Tile t: rightTiles){
@@ -267,7 +214,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				t.draw(graphToBack);
 				rightTiles.remove(t);
 				ball.setXSpeed(-ball.getXSpeed());
-				ball.moveAndDraw(graphToBack);
 			}
 			
 			if (ball.didCollideTopTile(t) || ball.didCollideBottomTile(t))
@@ -277,27 +223,26 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				t.draw(graphToBack);
 				rightTiles.remove(t);
 				ball.setYSpeed(-ball.getYSpeed());
-				ball.moveAndDraw(graphToBack);
 			}
-		} **/
+		}
 	
 		//see if the paddles need to be moved
 	
 		if(keys[0] == true)
 		{
-			paddle.moveLeftAndDraw(graphToBack);
+			Paddle.moveLeftAndDraw(graphToBack);
 		}
 		if(keys[1] == true)
 		{
-			paddle.moveRightAndDraw(graphToBack);
+			Paddle.moveRightAndDraw(graphToBack);
 		}
 		if(keys[2] == true)
 		{
-			paddle.moveUpAndDraw(graphToBack);
+			Paddle.moveUpAndDraw(graphToBack);
 		}
 		if(keys[3] == true)
 		{
-			paddle.moveDownAndDraw(graphToBack);
+			Paddle.moveDownAndDraw(graphToBack);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);

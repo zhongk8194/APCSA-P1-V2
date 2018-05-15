@@ -7,7 +7,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Ball extends Block 
+public class Ball extends Block implements Collidable
 {
 	private int xSpeed;
 	private int ySpeed;
@@ -59,17 +59,21 @@ public class Ball extends Block
    public void moveAndDraw(Graphics window)
    {
    	//draw a white ball at old ball location
-	   Color temp = getColor();
-	   draw(window, Color.WHITE);
-	   setPos(getX()+xSpeed, getY()+ySpeed);
-	   draw(window, temp);
+	   draw(window,Color.WHITE);
+      setX(getX()+xSpeed);
+      setY(getY()+ySpeed);
+      draw(window);
       
    }
    
 	public boolean equals(Object obj)
 	{
-		Ball other = (Ball) obj;
-		return super.equals(other) && this.getXSpeed() == other.getXSpeed() && this.getYSpeed() == other.getYSpeed();
+		Ball ob = (Ball) obj;
+		if (ob.getXSpeed()==getXSpeed()&&ob.getYSpeed()==getYSpeed()){
+			return super.equals(ob);
+		}
+
+		return false;
 	}   
 
    //add the get methods
@@ -87,60 +91,10 @@ public class Ball extends Block
 		return "x: "+getX()+" y: "+getY()+" width: "+getWidth()+" height: "+getHeight()+" color: "+getColor()+" xSpeed: "+getXSpeed()+" ySpeed:."
 				+ " "+getYSpeed();
 	}
-	
-	public boolean didCollideLeftWall(Object obj) {
-		Wall other = (Wall) obj;
-		return this.getX() <= other.getLeft();
-	}
-	
-	public boolean didCollideRightWall(Object obj) {
-		Wall other = (Wall) obj;
-		return this.getX() >= other.getRight();
-	}
-	
-	public boolean didCollideTopWall(Object obj) {
-		Wall other = (Wall) obj;
-		return this.getY() <= other.getTop();
-	}
 
-	public boolean didCollideBottomWall(Object obj) {
-		Wall other = (Wall) obj;
-		return this.getY()+9 /*because the bottom wall is screwed up*/ >= other.getBottom();
-	}
 	
-	public boolean didCollidePaddle(Object obj){
-		   Paddle paddle = (Paddle) obj;
-		   if(getX()>paddle.getX() && getX() < paddle.getX()+paddle.getWidth()){
-				if(getY()>paddle.getY() && getY() < paddle.getY()+paddle.getHeight()){
-					return true;
-				}
-			}
-		   return false;
-	   }
-	   
-	   public boolean didCollidePaddleX(Object obj){
-		   Paddle paddle = (Paddle) obj;
-		   if(getX()-5*getXSpeed()>paddle.getX()+40){
-			   return true;
-		   }
-		   if(getX()-5*getXSpeed()<paddle.getX()){
-			   return true;
-		   }
-		   return false;
-	   }
-	   
-	   public boolean didCollidePaddleY(Object obj){
-		   Paddle paddle = (Paddle) obj;
-		   if(getY()-5*getYSpeed()>paddle.getY()+40){
-			   return true;
-		   }
-		   if(getY()-5*getYSpeed()<paddle.getY()){
-			   return true;
-		   }
-		   return false;
-	   }
-	
-	/**@Override
+
+	@Override
 	public boolean didCollideLeft(Object obj) {
 		// TODO Auto-generated method stub
 		Paddle paddle = (Paddle)obj;
@@ -183,8 +137,34 @@ public class Ball extends Block
 		return false;
 	}
 	
+	 public boolean didCollideLeftWall(Object obj){
+		   if(getX()<=10) {
+			   return true;
+		   }
+		   return false;
+	   }
+	   public boolean didCollideRightWall(Object obj){
+		   if(getX()>=780) {
+			   return true;
+		   }
+		   return false;
+	   }
+	   public boolean didCollideTopWall(Object obj){
+		   if(getY()<=10)
+			{
+				return true;
+			}
+		   return false;
+	   }
+	   public boolean didCollideBottomWall(Object obj){
+		   if(getY()>=510)
+			{
+				return true;
+			}
+		   return false;
+	   }
 	
-	public boolean didCollideLeftTile(Object obj) {
+	/**public boolean didCollideLeftTile(Object obj) {
 		Tile tile = (Tile) obj;
 		if (getX()<=tile.getX()+tile.getWidth()&&getX()>tile.getX()&&(getY()>=tile.getY() && getY()<=tile.getY()+tile.getHeight())){
 			System.out.println("collide left");
@@ -220,6 +200,5 @@ public class Ball extends Block
 			return true;			
 		}
 		return false;
-	}
-	**/
+	}**/
 }

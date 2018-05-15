@@ -20,7 +20,7 @@ import java.awt.event.ActionListener;
 public class Pong extends Canvas implements KeyListener, Runnable
 {
 	private Ball ball;
-	private Paddle paddle;
+	private Paddle Paddle;
 	private boolean[] keys;
 	private BufferedImage back;
 	private Tile tiles;
@@ -64,7 +64,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		int x = tiles.removeDeadOnes(ball);
 		
 		ball.moveAndDraw(graphToBack);
-		paddle.draw(graphToBack);
+		Paddle.draw(graphToBack);
 		tiles.drawEmAll(graphToBack);
 
 
@@ -285,19 +285,19 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	
 		if(keys[0] == true)
 		{
-			paddle.moveLeftAndDraw(graphToBack);
+			Paddle.moveLeftAndDraw(graphToBack);
 		}
 		if(keys[1] == true)
 		{
-			paddle.moveRightAndDraw(graphToBack);
+			Paddle.moveRightAndDraw(graphToBack);
 		}
 		if(keys[2] == true)
 		{
-			paddle.moveUpAndDraw(graphToBack);
+			Paddle.moveUpAndDraw(graphToBack);
 		}
 		if(keys[3] == true)
 		{
-			paddle.moveDownAndDraw(graphToBack);
+			Paddle.moveDownAndDraw(graphToBack);
 		}
 		
 		twoDGraph.drawImage(back, null, 0, 0);
