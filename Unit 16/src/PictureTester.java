@@ -149,24 +149,16 @@ public class PictureTester
 
   }
   
-  public static void testEncode()
+  public static void testEncodeandDecode()
   {
-	  Picture canvas = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\msg.jpg");
+	  Picture canvas = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\beach.jpg");
 	  canvas.explore();
-	  canvas.encode(canvas);
+	  Picture message = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\msg.jpg");
+	  canvas.encode(message);
 	  canvas.explore();
+	  canvas.decode().explore();
 	  
   }
-  
-  public static void testDecode()
-  {
-	  Picture canvas = new Picture("H:\\APCSA\\Unit16\\pixLab\\images\\msg.jpg");
-	  canvas.explore();
-	  canvas.decode();
-	  canvas.explore();
-	  
-  }
- 
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -201,8 +193,7 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
 	 // testSharpen(50,50,500,400);
-	  testEncode();
-	//  testDecode();
+	  testEncodeandDecode();
   }
 }
 

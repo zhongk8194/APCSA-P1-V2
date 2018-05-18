@@ -13,7 +13,7 @@ public class TheGame extends JFrame
 	private static final int HEIGHT = 600;
 
 	public TheGame()
-	{
+	{ 
 		super("PONG");
 		setSize(WIDTH,HEIGHT);
 		
@@ -21,7 +21,8 @@ public class TheGame extends JFrame
 		
 		((Component)game).setFocusable(true);			
 		getContentPane().add(game);
-						
+			
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 	

@@ -1,9 +1,3 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -24,24 +18,22 @@ public class Tile extends Block
 		leftTiles = new ArrayList<Block>();
 		rightTiles = new ArrayList<Block>();
 		
-		for (int i = 0; i < 760; i+=40)
+		for (int i = 0; i < 800; i+=40)
 		{
-			topTiles.add(new Block(i, 0, 39, 20, Color.PINK));
-			topTiles.add(new Block(i, 21, 39, 20, Color.GRAY));
-			bottomTiles.add(new Block(i, 540, 39, 20, Color.PINK));
-			bottomTiles.add(new Block(i, 521, 39, 20, Color.GRAY));
+			topTiles.add(new Block(i, 0, 39, 25, Color.PINK));
+			topTiles.add(new Block(i, 26, 39, 25, Color.GRAY));
+			bottomTiles.add(new Block(i, 536, 39, 25, Color.PINK));
+			bottomTiles.add(new Block(i, 510, 39, 25, Color.GRAY));
 		}
 		
-		for (int j = 0; j < 560; j+=40)
+		for (int j = 0; j < 600; j+=40)
 		{
-			leftTiles.add(new Block(0,j,20,39,Color.PINK));
-			leftTiles.add(new Block(21, j, 20, 39, Color.GRAY));
-			rightTiles.add(new Block(765, j, 20, 39, Color.PINK));
-			rightTiles.add(new Block(746, j, 20, 39, Color.GRAY));
+			leftTiles.add(new Block(0, j, 25, 39,Color.PINK));
+			leftTiles.add(new Block(26, j, 25, 39, Color.GRAY));
+			rightTiles.add(new Block(759, j, 25, 39, Color.PINK));
+			rightTiles.add(new Block(733, j, 25, 39, Color.GRAY));
 		}
 	}
-	
-	
 	
 
 	public void drawEmAll( Graphics window )
@@ -106,9 +98,11 @@ public class Tile extends Block
 					window.fillRect(leftTiles.get(i).getX(), leftTiles.get(i).getY(), leftTiles.get(i).getWidth(), leftTiles.get(i).getHeight());
 					if(leftTiles.get(i).getHeight()<75){
 						x = 1;
+						System.out.println(x + "Collided left tile");
 					}
 					if(leftTiles.get(i).getHeight()>=75){
 						x = 2;
+						System.out.println(x + "Collided left tile");
 					}
 					leftTiles.remove(i);
 				}

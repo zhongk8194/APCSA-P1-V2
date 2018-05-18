@@ -1,4 +1,3 @@
-
 public class Wall {
 	
 	private int left;

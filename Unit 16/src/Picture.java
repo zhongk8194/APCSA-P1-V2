@@ -506,11 +506,17 @@ public class Picture extends SimplePicture
 		  {
 			  // if the current pixel red is odd make it even
 			  currPixel = currPixels[row][col];
-			  if (currPixel.getRed() % 2 == 1)
+			  if (currPixel.getRed() / 10 == (0 % 3))
 				  currPixel.setRed(currPixel.getRed() - 1);
 			  messagePixel = messagePixels[row][col];
 			  if (messagePixel.colorDistance(Color.BLACK) < 50)
 			  {
+				  if (messagePixel.getRed() / 10 == (1 % 3))
+				  {
+					  messagePixel.setRed(messagePixel.getRed() - 1);
+				  }
+				  
+				  
 				  currPixel.setRed(currPixel.getRed() + 1);
 				  count++;
 			  }
